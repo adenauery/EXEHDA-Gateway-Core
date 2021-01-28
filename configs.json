@@ -1,0 +1,103 @@
+{
+  "project_name": "SANEP-I2MF",
+  "gateway": {
+    "name": "GW-sanep",
+    "uuid": "65ed453f-228d-4c5a-8037-c39ff77cf6c1"
+  },
+  "git": {
+    "url": "https://github.com/EXEHDA/SANEP-I2MF-Gateway",
+    "token": "6ae4ffe41cf78e0c4d583a69e9bb6c32ef96e6fb"
+  },
+  "broker_mqtt": {
+    "ip": "200.132.103.52",
+    "port": "1883",
+    "user": "middleware",
+    "pass": "exehda",
+    "topic": "matheuskprot"
+  },
+  "devices": [
+    {
+      "uuid": "a08042cf-8610-4bd4-8bea-6320ce7c613c",
+      "name": "Memória Livre",
+      "operation_time": {
+        "period": 600,
+        "period_steps": [0]
+      },
+      "status": false,
+      "driver": "free_memory"
+    },
+    {
+      "uuid": "a193dd2b-dac9-4b97-9d63-d9d48ceb45bc",
+      "name": "Start Time",
+      "operation_time": {
+        "period": 600,
+        "period_steps": [0]
+      },
+      "status": false,
+      "driver": "start_time"
+    },
+    {
+      "uuid": "1445df0b-ad19-45c7-9f35-12882c42bc0e",
+      "name": "Reset",
+      "operation_time": {
+        "period": 600,
+        "period_steps": [0]
+      },
+      "status": false,
+      "driver": "reset"
+    },
+    {
+      "uuid": "1445df0b-ad19-45c7-9f35-12882c42bc0f",
+      "name": "Update",
+      "operation_time": {
+        "period": 600,
+        "period_steps": [0]
+      },
+      "status": false,
+      "driver": "update"
+    },
+    {
+      "uuid": "1445df0b-ad19-45c7-9f35-12882c42bc01",
+      "name": "Upgrade",
+      "operation_time": {
+        "period": 600,
+        "period_steps": [0]
+      },
+      "status": false,
+      "driver": "upgrade"
+		},
+		{
+      "uuid": "76342aa3-4468-4907-8113-fd8b6edca6e0",
+      "name": "Temperatura 1",
+      "operation_time": {
+        "period": 60,
+        "period_steps": [0]
+			},
+      "pin": [18, 0],
+      "status": true,
+      "driver": "temperature"
+    },
+    {
+      "uuid": "76342aa3-4468-4907-8113-fd8b6edca6e1",
+      "name": "Temperatura 2",
+      "operation_time": {
+        "period": 60,
+        "period_steps": [0]
+			},
+      "pin": [18, 1],
+      "status": true,
+      "driver": "temperature"
+    },
+    {
+      "uuid": "ba1c5cb1-ca29-4ddd-8f1b-243e07b5f129",
+      "name": "Atuador GPIO",
+      "operation_time": {
+        "period": 600,
+        "period_steps": [0]
+      },
+      "pin": 19,
+      "status": false,
+      "driver": "gpio"
+    }
+  ]
+}
