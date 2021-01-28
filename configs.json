@@ -9,11 +9,11 @@
     "token": "6ae4ffe41cf78e0c4d583a69e9bb6c32ef96e6fb"
   },
   "broker_mqtt": {
-    "ip": "200.132.103.52",
+    "ip": "200.132.103.53",
     "port": "1883",
     "user": "middleware",
     "pass": "exehda",
-    "topic": "matheuskprot"
+    "topic": "i2wac"
   },
   "devices": [
     {
