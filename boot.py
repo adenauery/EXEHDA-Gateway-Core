@@ -11,13 +11,12 @@ try:
 	Clock()
 	OTA()
 
- 	if 'main' in listdir():
-    		from main.init import start
-    		start()
- 	else:
+	if 'main' in listdir():
+				from main.init import start
+				start()
+	else:
 		log("falta pasta main")
 
 except Exception as e:
 	log("boot.py: {}".format(e))
-finally:
 	reset()

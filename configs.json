@@ -1,23 +1,23 @@
 {
-  "project_name": "SANEP-I2MF",
+  "project_name": "EXEHDA",
   "gateway": {
-    "name": "GW-sanep",
-    "uuid": "65ed453f-228d-4c5a-8037-c39ff77cf6c1"
+    "name": "",
+    "uuid": ""
   },
   "git": {
-    "url": "https://github.com/EXEHDA/SANEP-I2MF-Gateway",
-    "token": "6ae4ffe41cf78e0c4d583a69e9bb6c32ef96e6fb"
+    "url": "https://github.com/adenauery/EXEHDA-Gateway",
+    "token": ""
   },
   "broker_mqtt": {
-    "ip": "200.132.103.53",
-    "port": "1883",
-    "user": "middleware",
-    "pass": "exehda",
-    "topic": "i2wac"
+    "ip": "",
+    "port": "",
+    "user": "",
+    "pass": "",
+    "topic": ""
   },
   "devices": [
     {
-      "uuid": "a08042cf-8610-4bd4-8bea-6320ce7c613c",
+      "uuid": "",
       "name": "Memória Livre",
       "operation_time": {
         "period": 600,
@@ -27,7 +27,7 @@
       "driver": "free_memory"
     },
     {
-      "uuid": "a193dd2b-dac9-4b97-9d63-d9d48ceb45bc",
+      "uuid": "",
       "name": "Start Time",
       "operation_time": {
         "period": 600,
@@ -37,7 +37,7 @@
       "driver": "start_time"
     },
     {
-      "uuid": "1445df0b-ad19-45c7-9f35-12882c42bc0e",
+      "uuid": "",
       "name": "Reset",
       "operation_time": {
         "period": 600,
@@ -47,7 +47,7 @@
       "driver": "reset"
     },
     {
-      "uuid": "1445df0b-ad19-45c7-9f35-12882c42bc0f",
+      "uuid": "",
       "name": "Update",
       "operation_time": {
         "period": 600,
@@ -57,7 +57,7 @@
       "driver": "update"
     },
     {
-      "uuid": "1445df0b-ad19-45c7-9f35-12882c42bc01",
+      "uuid": "",
       "name": "Upgrade",
       "operation_time": {
         "period": 600,
@@ -67,7 +67,7 @@
       "driver": "upgrade"
 		},
 		{
-      "uuid": "76342aa3-4468-4907-8113-fd8b6edca6e0",
+      "uuid": "",
       "name": "Temperatura 1",
       "operation_time": {
         "period": 60,
@@ -78,7 +78,7 @@
       "driver": "temperature"
     },
     {
-      "uuid": "76342aa3-4468-4907-8113-fd8b6edca6e1",
+      "uuid": "",
       "name": "Temperatura 2",
       "operation_time": {
         "period": 60,
@@ -89,7 +89,7 @@
       "driver": "temperature"
     },
     {
-      "uuid": "ba1c5cb1-ca29-4ddd-8f1b-243e07b5f129",
+      "uuid": "",
       "name": "Atuador GPIO",
       "operation_time": {
         "period": 600,
