@@ -51,7 +51,7 @@ class OTA:
 				file.write(latest_version)
 				file.close()
 
-				log("OTA: Download Realizado")
+				log("OTA: Download Realizado, Versao:" + latest_version)
 
 		except Exception as e:
 			log("OTA: {}".format(e))

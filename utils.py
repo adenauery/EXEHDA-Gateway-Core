@@ -15,8 +15,11 @@ def get_date():
 
 
 def log(data):
+	log_data = "{}\n".format(dumps({"gathered_at": get_date(), "type": "log", "data": data}))
+	print(log_data)
+	
 	file = open('log.txt', 'a')
-	file.write("{}\n".format(dumps({"gathered_at": get_date(), "type": "log", "data": data})))
+	file.write(log_data)
 	file.close()
 
 
