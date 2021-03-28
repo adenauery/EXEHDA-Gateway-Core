@@ -27,7 +27,8 @@ class OTA:
 		try:
 			if 'next' in os.listdir(self.module):
 				if '.version' in os.listdir(self.module_path('next')):
-					self.rmtree(self.module_path(self.main_dir))
+					if self.module_path(self.main_dir) in os.listdir():
+						self.rmtree(self.module_path(self.main_dir))
 					os.rename(self.module_path('next'), self.module_path(self.main_dir))
 					log("OTA: Codigo Atualizado")
 				else:
@@ -37,8 +38,6 @@ class OTA:
 
 	def download_updates_if_available(self):
 		try:
-			if 'main' not in os.listdir():
-				os.mkdir('main')
 			current_version = self.get_version(self.module_path(self.main_dir))
 			latest_version = self.get_latest_version()
 
@@ -68,11 +67,12 @@ class OTA:
 		os.rmdir(directory)
 
 	def get_version(self, directory, version_file_name='.version'):
-		if version_file_name in os.listdir(directory):
-			file = open(directory + '/' + version_file_name)
-			version = file.read()
-			file.close()
-			return version
+		if directory in os.listdir():
+			if version_file_name in os.listdir(directory):
+				file = open(directory + '/' + version_file_name)
+				version = file.read()
+				file.close()
+				return version
 		return '0.0'
 
 	def get_latest_version(self):
