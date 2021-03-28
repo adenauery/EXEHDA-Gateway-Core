@@ -15,7 +15,7 @@ def get_date():
 
 
 def log(data):
-	file = open('buffer.txt', 'a')
+	file = open('log.txt', 'a')
 	file.write("{}\n".format(dumps({"gathered_at": get_date(), "type": "log", "data": data})))
 	file.close()
 

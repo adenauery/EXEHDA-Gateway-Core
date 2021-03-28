@@ -19,7 +19,7 @@ class Clock:
 		try:
 			settime()
 		except Exception as e:
-			log("Clock: {}".format(e))
+			log("CLOCK: {}".format(e))
 		
 		if int(localtime()[0]) > 2018:
 			return True

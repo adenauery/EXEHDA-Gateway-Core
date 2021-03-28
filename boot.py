@@ -11,11 +11,15 @@ try:
 	OTA()
 
 	if 'main' in listdir():
-				from main.init import start
-				start()
+		from main.init import start
+		try:
+			start()
+		except Exception as e:
+			log("APP: {}".format(e))
+			reset()
 	else:
-		log("falta pasta main")
+		log("BOOT: aplicacao principal nao encontrada.")
 
 except Exception as e:
-	log("boot.py: {}".format(e))
+	log("BOOT: {}".format(e))
 	reset()
