@@ -6,7 +6,6 @@ from os import listdir
 from machine import reset
 
 try:
-	start_time()
 	WiFi()
 	Clock()
 	OTA()
