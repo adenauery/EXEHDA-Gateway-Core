@@ -85,9 +85,10 @@ class OTA:
 		file_list = self.http_client.get(root_url + '?ref=refs/tags/' + version)
 		for file in file_list.json():
 			if file['type'] == 'file':
-				download_url = file['download_url']
-				download_path = self.module_path('next/' + file['path'])
-				self.download_file(download_url.replace('refs/tags/', ''), download_path)
+				if file['path'] != '.gitignore' and file['path'] != 'README.md':
+					download_url = file['download_url']
+					download_path = self.module_path('next/' + file['path'])
+					self.download_file(download_url.replace('refs/tags/', ''), download_path)
 			elif file['type'] == 'dir':
 				path = self.module_path('next/' + file['path'])
 				os.mkdir(path)
