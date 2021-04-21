@@ -30,7 +30,7 @@ class OTA:
 					if self.module_path(self.main_dir) in os.listdir():
 						self.rmtree(self.module_path(self.main_dir))
 					os.rename(self.module_path('next'), self.module_path(self.main_dir))
-					log("OTA: Codigo Atualizado")
+					log("OTA: updated code")
 				else:
 					self.rmtree(self.module_path('next'))
 		except Exception as e:
@@ -51,7 +51,7 @@ class OTA:
 				file.write(latest_version)
 				file.close()
 
-				log("OTA: Download Realizado, Versao:" + latest_version)
+				log("OTA: successful download, version:" + latest_version)
 
 		except Exception as e:
 			log("OTA: {}".format(e))

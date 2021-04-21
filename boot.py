@@ -18,7 +18,7 @@ try:
 			log("APP: {}".format(e))
 			reset()
 	else:
-		log("BOOT: aplicacao principal nao encontrada.")
+		log("BOOT: main application not found")
 
 except Exception as e:
 	log("BOOT: {}".format(e))
