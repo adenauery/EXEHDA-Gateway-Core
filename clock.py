@@ -14,11 +14,6 @@ class Clock:
 	def refresh(self):
 		sleep(60 * 60 * 24)
 		self.set_clock()
-	
-	def get_posix_timestamp(self):
-		# time() return timestamp from 2000-01-01 00:00:00 UTC
-		# while the posix timestamp 1970-01-01 00:00:00 UTC 
-		return time() + 946684800
 		
 	def set_clock(self):
 		try:
