@@ -51,7 +51,7 @@ class OTA:
 				file.write(latest_version)
 				file.close()
 
-				log("OTA: successful download, version:" + latest_version)
+				log("OTA: successful download, version: " + latest_version)
 
 		except Exception as e:
 			log("OTA: {}".format(e))
@@ -90,9 +90,10 @@ class OTA:
 					download_path = self.module_path('next/' + file['path'])
 					self.download_file(download_url.replace('refs/tags/', ''), download_path)
 			elif file['type'] == 'dir':
-				path = self.module_path('next/' + file['path'])
-				os.mkdir(path)
-				self.download_all_files(root_url + '/' + file['name'], version)
+				if file['name'] != 'tests':
+					path = self.module_path('next/' + file['path'])
+					os.mkdir(path)
+					self.download_all_files(root_url + '/' + file['name'], version)
 		file_list.close()
 
 	def download_file(self, url, path):
