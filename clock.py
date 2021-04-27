@@ -1,6 +1,6 @@
 from ntptime import settime
 from _thread import start_new_thread
-from time import sleep, localtime
+from time import sleep, localtime, time
 
 from utils import log, start_time
 
@@ -14,12 +14,12 @@ class Clock:
 	def refresh(self):
 		sleep(60 * 60 * 24)
 		self.set_clock()
-
+		
 	def set_clock(self):
 		try:
 			settime()
 		except Exception as e:
-			log("Clock: {}".format(e))
+			log("CLOCK: {}".format(e))
 		
 		if int(localtime()[0]) > 2018:
 			return True

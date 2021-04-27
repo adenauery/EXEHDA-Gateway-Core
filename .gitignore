@@ -1,0 +1,4 @@
+.vscode/
+deploy.sh
+firmware.bin
+wifi.dat

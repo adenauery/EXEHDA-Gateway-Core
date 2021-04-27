@@ -1,5 +1,5 @@
 from json import loads, dumps
-from time import localtime
+from time import localtime, time
 
 
 def get_configs():
@@ -8,6 +8,10 @@ def get_configs():
 	file.close()
 	return configs
 
+def get_posix_timestamp():
+	# time() return timestamp from 2000-01-01 00:00:00 UTC
+	# while the posix timestamp 1970-01-01 00:00:00 UTC 
+	return time() + 946684800
 
 def get_date():
 	local_date = localtime()
@@ -15,8 +19,11 @@ def get_date():
 
 
 def log(data):
+	log_data = "{}\n".format(dumps({"gathered_at": get_date(), "type": "log", "data": data}))
+	print(log_data)
+	
 	file = open('buffer.txt', 'a')
-	file.write("{}\n".format(dumps({"gathered_at": get_date(), "type": "log", "data": data})))
+	file.write(log_data)
 	file.close()
 
 

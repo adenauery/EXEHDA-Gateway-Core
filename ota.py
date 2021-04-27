@@ -27,9 +27,10 @@ class OTA:
 		try:
 			if 'next' in os.listdir(self.module):
 				if '.version' in os.listdir(self.module_path('next')):
-					self.rmtree(self.module_path(self.main_dir))
+					if self.module_path(self.main_dir) in os.listdir():
+						self.rmtree(self.module_path(self.main_dir))
 					os.rename(self.module_path('next'), self.module_path(self.main_dir))
-					log("OTA: Codigo Atualizado")
+					log("OTA: updated code")
 				else:
 					self.rmtree(self.module_path('next'))
 		except Exception as e:
@@ -37,8 +38,6 @@ class OTA:
 
 	def download_updates_if_available(self):
 		try:
-			if 'main' not in os.listdir():
-				os.mkdir('main')
 			current_version = self.get_version(self.module_path(self.main_dir))
 			latest_version = self.get_latest_version()
 
@@ -52,7 +51,7 @@ class OTA:
 				file.write(latest_version)
 				file.close()
 
-				log("OTA: Download Realizado")
+				log("OTA: successful download, version: " + latest_version)
 
 		except Exception as e:
 			log("OTA: {}".format(e))
@@ -68,11 +67,12 @@ class OTA:
 		os.rmdir(directory)
 
 	def get_version(self, directory, version_file_name='.version'):
-		if version_file_name in os.listdir(directory):
-			file = open(directory + '/' + version_file_name)
-			version = file.read()
-			file.close()
-			return version
+		if directory in os.listdir():
+			if version_file_name in os.listdir(directory):
+				file = open(directory + '/' + version_file_name)
+				version = file.read()
+				file.close()
+				return version
 		return '0.0'
 
 	def get_latest_version(self):
@@ -85,13 +85,15 @@ class OTA:
 		file_list = self.http_client.get(root_url + '?ref=refs/tags/' + version)
 		for file in file_list.json():
 			if file['type'] == 'file':
-				download_url = file['download_url']
-				download_path = self.module_path('next/' + file['path'])
-				self.download_file(download_url.replace('refs/tags/', ''), download_path)
+				if file['path'] != '.gitignore' and file['path'] != 'README.md':
+					download_url = file['download_url']
+					download_path = self.module_path('next/' + file['path'])
+					self.download_file(download_url.replace('refs/tags/', ''), download_path)
 			elif file['type'] == 'dir':
-				path = self.module_path('next/' + file['path'])
-				os.mkdir(path)
-				self.download_all_files(root_url + '/' + file['name'], version)
+				if file['name'] != 'tests':
+					path = self.module_path('next/' + file['path'])
+					os.mkdir(path)
+					self.download_all_files(root_url + '/' + file['name'], version)
 		file_list.close()
 
 	def download_file(self, url, path):
