@@ -167,11 +167,11 @@ class HttpClient:
 
 		ai = socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM)
 		ai = ai[0]
-
 		s = socket.socket(ai[0], ai[1], ai[2])
 		try:
 			s.connect(ai[-1])
 			if proto == 'https:':
+				gc.collect()
 				s = ssl.wrap_socket(s)
 			s.write(b'%s /%s HTTP/1.0\r\n' % (method, path))
 			if 'Host' not in headers:
@@ -183,6 +183,7 @@ class HttpClient:
 			s.write(b': ')
 			s.write(b'MicroPython OTAUpdater')
 			s.write(b'\r\n')
+
 			if json is not None:
 				assert data is None
 				data = json.dumps(json)
