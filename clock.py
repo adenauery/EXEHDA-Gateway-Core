@@ -21,8 +21,9 @@ class Clock:
 		start_new_thread(self.refresh, ())
 
 	def refresh(self):
-		sleep(60 * 60 * 24)
-		self.set_clock()
+		while True:
+			sleep(60 * 60 * 24)
+			self.set_clock()
 
 	def is_valid_time(self, time):
 		return int(time[0]) > 2018
